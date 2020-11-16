@@ -14,7 +14,7 @@ type Node struct {
 
 type ListNode struct {
 	name         string
-	firstEl       *Node
+	firstEl      *Node
 	lastEl       *Node
 	currentQueue *Node
 	size         int
@@ -54,7 +54,6 @@ func createTableOfUser(name string) *ListNode {
 		name: name,
 	}
 }
-
 
 func (p *ListNode) showAllUsers() error {
 	currentNode := p.firstEl
@@ -96,7 +95,6 @@ func (p *ListNode) sizeOfUser() int {
 	}
 	return size
 }
-
 
 func main() {
 	dashes := strings.Repeat("-", 65)
