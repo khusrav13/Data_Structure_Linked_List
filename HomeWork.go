@@ -14,7 +14,7 @@ type Node struct {
 
 type ListNode struct {
 	name         string
-	firsEl       *Node
+	firstEl       *Node
 	lastEl       *Node
 	currentQueue *Node
 	size         int
@@ -22,14 +22,14 @@ type ListNode struct {
 
 ////Check if our list is empty or not
 func (p *ListNode) IsEmpty() bool {
-	if p.firsEl == nil {
+	if p.firstEl == nil {
 		return true
 	}
 	return false
 }
 
 func (p *ListNode) SettingsOfUser() *Node {
-	p.currentQueue = p.firsEl
+	p.currentQueue = p.firstEl
 	return p.currentQueue
 }
 
@@ -38,8 +38,8 @@ func (p *ListNode) addUser(name string, priority int64) error {
 		name:     name,
 		priority: priority,
 	}
-	if p.firsEl == nil {
-		p.firsEl = s
+	if p.firstEl == nil {
+		p.firstEl = s
 	} else {
 		currentNode := p.lastEl
 		currentNode.next = s
@@ -57,7 +57,7 @@ func createTableOfUser(name string) *ListNode {
 
 
 func (p *ListNode) showAllUsers() error {
-	currentNode := p.firsEl
+	currentNode := p.firstEl
 	if currentNode == nil {
 		fmt.Println("Cannot find any user")
 		return nil
@@ -86,7 +86,7 @@ func (p *ListNode) previousUser() *Node {
 func (p *ListNode) sizeOfUser() int {
 
 	size := 1
-	last := p.firsEl
+	last := p.firstEl
 	for {
 		if last == nil || last.next == nil {
 			break
